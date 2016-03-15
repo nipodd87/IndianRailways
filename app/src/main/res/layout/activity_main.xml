@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainRelative"
+    android:background="@drawable/icon_bg_app"
+    tools:context=".MainActivity">
+
+    <include android:id="@+id/app_bar_inc" layout="@layout/app_bar"></include>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@id/app_bar_inc"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:alpha="0.8"
+        android:layout_marginTop="6dp"
+        android:dividerHeight="15px"
+        android:layout_marginRight="3dp"
+        />
+</RelativeLayout>

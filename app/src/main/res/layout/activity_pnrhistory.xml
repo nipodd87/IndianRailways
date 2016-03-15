@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg_app"
+    >
+
+    <include android:id="@+id/app_bar_inc" layout="@layout/app_bar"></include>
+
+    <ListView
+        android:layout_below="@id/app_bar_inc"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/pnrList"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:alpha="0.75"
+        android:dividerHeight="5px"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+         />
+</RelativeLayout>

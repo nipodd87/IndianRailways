@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e0"
+    >
+
+    <TextView
+        android:id="@+id/travelDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        />
+    <TextView
+        android:id="@+id/travelDateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="01-01-2016"
+        android:textSize="15dp"
+        android:layout_toRightOf="@id/travelDate"
+        />
+    <TextView
+        android:id="@+id/trainClassCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Class: "
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/travelDateTxt"
+        />
+    <TextView
+        android:id="@+id/trainClassCodeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="1A"
+        android:textSize="15dp"
+        android:layout_toRightOf="@id/trainClassCode"
+        />
+    <TextView
+        android:id="@+id/travelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:text="Status: "
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/travelDate"
+        />
+    <TextView
+        android:id="@+id/travelStatusTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_toRightOf="@id/travelStatus"
+        android:text="Confirmed"
+        android:textSize="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/travelDate"
+        />
+
+</RelativeLayout>

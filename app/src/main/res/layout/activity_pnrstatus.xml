@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg_app"
+    >
+
+    <include android:id="@+id/app_bar_inc" layout="@layout/app_bar"></include>
+    <TextView
+        android:id="@+id/pnrStatusTxt"
+        android:layout_below="@id/app_bar_inc"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:text="PNR Number: "/>
+    <EditText
+        android:id="@+id/pnrStatusEditTxt"
+        android:layout_below="@id/app_bar_inc"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:maxLength="10"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:background="@drawable/edittext_rounded"
+        android:cursorVisible="false"
+        android:layout_toRightOf="@+id/pnrStatusTxt"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"/>
+    <Button
+        android:id="@+id/pnrStatusbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pnrStatusCheck"
+        android:text="Get Status"
+        android:background="@drawable/textview_ontime"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/pnrStatusEditTxt"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/pnrHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getPNRHistory"
+        android:text="PNR History"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/textview_ontime"
+        android:layout_below="@+id/pnrStatusbtn"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

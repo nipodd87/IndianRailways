@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e0"
+    >
+
+
+    <TextView
+        android:id="@+id/classCodeTxt"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:text="Code: "
+        />
+    <TextView
+        android:id="@+id/classCode"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/classCodeTxt"
+        android:text="1A"
+        android:layout_marginLeft="2dp"
+        android:textColor="#000"
+        android:textSize="15dp"
+        />
+    <TextView
+        android:id="@+id/classNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/classCode"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:text="Class: "
+        />
+    <TextView
+        android:id="@+id/className"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/classNameTxt"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:layout_marginLeft="2dp"
+        android:text="First Class"
+        />
+    <TextView
+        android:id="@+id/trainNameTxt"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/className"
+        android:layout_marginLeft="3dp"
+        android:textColor="#000"
+        android:text="Train Name: "
+        android:textSize="15dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/trainName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/className"
+        android:layout_toRightOf="@id/trainNameTxt"
+        android:layout_marginLeft="3dp"
+        android:textColor="#000"
+        android:text="Falaknuma Express"
+        android:textSize="15dp"
+        />
+    <TextView
+        android:id="@+id/farePrice"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginRight="3dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/textview_ontime"
+        android:text="INR\n9999"
+        android:gravity="center"
+        android:layout_width="70dp"
+        android:layout_height="70dp" />
+    <TextView
+        android:id="@+id/trainNumberTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trainName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:layout_marginLeft="3dp"
+        android:textStyle="bold"
+        android:text="Train Number: "
+        />
+    <TextView
+        android:id="@+id/trainNumber"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="12345"
+        android:layout_below="@id/trainNameTxt"
+        android:textSize="15dp"
+        android:layout_toRightOf="@+id/trainNumberTxt"
+        />
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e0"
+    >
+    <TextView
+        android:id="@+id/stationNameTxt"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="8dp"
+        android:text="Yeshvanthpur"/>
+    <TextView
+        android:id="@+id/arrivesAt"
+        android:layout_below="@id/stationNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:text="Arrives at: "/>
+    <TextView
+        android:id="@+id/arrivesAtTxt"
+        android:layout_below="@id/stationNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/arrivesAt"
+        android:text="11:55 PM"/>
+    <TextView
+        android:id="@+id/distance"
+        android:layout_below="@id/stationNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/arrivesAtTxt"
+        android:textStyle="bold"
+        android:text="Distance:"/>
+    <TextView
+        android:id="@+id/distanceTxt"
+        android:layout_below="@id/stationNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@id/distance"
+        android:text="55 KM"/>
+    <TextView
+        android:id="@+id/day"
+        android:layout_below="@id/stationNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/distanceTxt"
+        android:textStyle="bold"
+        android:text="Day: "/>
+    <TextView
+        android:id="@+id/dayTxt"
+        android:layout_below="@id/stationNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@id/day"
+        android:text="1"/>
+</RelativeLayout>

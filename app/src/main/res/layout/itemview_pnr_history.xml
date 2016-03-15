@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e0"
+    >
+
+    <TextView
+        android:id="@+id/pnr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="8dp"
+        android:textSize="18sp"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_marginTop="2dp"
+        android:text="PNR: "
+        android:textStyle="bold"
+        android:textColor="#000"
+        />
+    <TextView
+        android:id="@+id/pnrTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/pnr"
+        android:layout_marginTop="2dp"
+        android:textColor="#000"
+        android:clickable="false"
+        android:focusable="false"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:id="@+id/journeyDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="8dp"
+        android:textSize="18sp"
+        android:layout_marginTop="2dp"
+        android:layout_alignParentBottom="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:textColor="#000"
+        android:text="DOJ: "
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/journeyDateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/journeyDate"
+        android:textSize="18sp"
+        android:layout_marginTop="2dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_alignParentBottom="true"
+        android:textColor="#000"
+        />
+    <Button
+        android:id="@+id/refresh_pnr"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="12sp"
+        android:text="Refresh"
+        android:textColor="#fff"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/textview_ontime"
+        android:layout_toLeftOf="@+id/stop_tracking"
+        android:layout_toStartOf="@+id/stop_tracking" />
+    <Button
+        android:id="@+id/stop_tracking"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/textview_ontime"
+        android:layout_alignParentRight="true"
+        android:textColor="#fff"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        android:text="Remove" />
+
+</RelativeLayout>

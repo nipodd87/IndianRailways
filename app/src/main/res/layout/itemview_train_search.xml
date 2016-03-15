@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1d1e0"
+    >
+
+    <TextView
+        android:id="@+id/trainNumberTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:textSize="15dp"
+        android:text="12246"/>
+
+    <TextView
+        android:id="@+id/prefixTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/trainNumberTxt"
+        android:text=" / "
+        />
+    <TextView
+        android:id="@+id/nameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:text="Duranto Express"
+        android:layout_toRightOf="@id/prefixTxt"
+        />
+    <TextView
+        android:id="@+id/deptTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginLeft="3dp"
+        android:layout_below="@id/nameTxt"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:text="Dept at: "
+        />
+    <TextView
+        android:id="@+id/dept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:layout_marginLeft="2dp"
+        android:text="19:46"
+        android:layout_toRightOf="@id/deptTxt"
+        android:layout_below="@id/nameTxt"
+        />
+    <TextView
+        android:id="@+id/arrivesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_toRightOf="@id/dept"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@id/dept"
+        android:layout_marginLeft="9dp"
+        android:text="Arr at:"
+        android:textSize="15dp"
+        />
+    <TextView
+        android:id="@+id/arrives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@id/arrivesTxt"
+        android:layout_alignBaseline="@id/arrivesTxt"
+        android:text="12:00"
+        />
+    <TextView
+        android:id="@+id/runsOnTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:text="Runs on: "
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/dept"
+        android:layout_alignLeft="@id/deptTxt"
+        />
+    <TextView
+        android:id="@+id/runsOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_toRightOf="@id/runsOnTxt"
+        android:textSize="15dp"
+        android:layout_below="@id/dept"
+        android:layout_marginTop="2dp"
+        android:text="MON, TUE, WED"
+        />
+</RelativeLayout>
