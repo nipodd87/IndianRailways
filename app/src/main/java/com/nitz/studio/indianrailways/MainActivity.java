@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
     private ListView listView;
     private ImageView app_icon;
     public int [] imgResource={R.drawable.icon_train_pnr, R.drawable.icon_train_status, R.drawable.icon_train_route,
-            R.drawable.icon_search_train, R.drawable.icon_train_fare, R.drawable.icon_seat_avail, R.drawable.icon_train_irctc,
+            R.drawable.icon_search_train, R.drawable.icon_train_fare, R.drawable.icon_seat_avail, R.drawable.ic_launcher, R.drawable.icon_train_irctc,
             R.drawable.icon_train_cancelled, R.drawable.icon_train_reschedule, R.drawable.icon_train_diverted, R.drawable.icon_rate_us, R.drawable.icon_share_app};
 
     public String [] mainListItem;
@@ -115,6 +115,11 @@ public class MainActivity extends ActionBarActivity {
                 case "Seat Availability":
                     Intent seatAvailIntent = new Intent(MainActivity.this, SeatAvail.class);
                     startActivity(seatAvailIntent);
+                    overridePendingTransition(R.anim.animation_slide, R.anim.animation_slide_back);
+                    break;
+                case "Train Arriving at Station":
+                    Intent liveStation = new Intent(MainActivity.this, LiveStation.class);
+                    startActivity(liveStation);
                     overridePendingTransition(R.anim.animation_slide, R.anim.animation_slide_back);
                     break;
                 case "Cancelled Trains":
