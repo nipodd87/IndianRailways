@@ -13,7 +13,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.nitz.studio.indianrailways.model.LiveStationModel;
+
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by nitinpoddar on 3/17/16.
@@ -25,6 +28,7 @@ public class LiveStation extends ActionBarActivity{
     private Button fourHourButton;
     public String mSourceStnCode = "";
     public ListView liveStationList;
+    public List<LiveStationModel> modelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
