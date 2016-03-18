@@ -7,6 +7,12 @@ public class LiveStationModel {
 
     private String trainName;
     private String trainNumber;
+    private String schArrival;
+    private String schDept;
+    private String actualArrival;
+    private String actualDept;
+    public static int responseCode;
+    public static int totalTrain;
 
     public String getTrainName() {
         return trainName;
@@ -56,9 +62,6 @@ public class LiveStationModel {
         this.actualDept = actualDept;
     }
 
-    private String schArrival;
-    private String schDept;
-    private String actualArrival;
-    private String actualDept;
+
 
 }

@@ -66,6 +66,11 @@
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".LiveStation"
+            android:label="Seat Availability"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".IRCTCBooking"
             android:label="IRCTC Booking"
             android:windowSoftInputMode="stateHidden"

@@ -6,14 +6,20 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nitz.studio.indianrailways.model.LiveStationModel;
+import com.nitz.studio.indianrailways.parser.LiveStationParser;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +29,7 @@ import java.util.List;
  */
 public class LiveStation extends ActionBarActivity{
 
-    private AutoCompleteTextView sourceTxt;
+    private EditText sourceTxt;
     private Button twoHourButton;
     private Button fourHourButton;
     public String mSourceStnCode = "";
@@ -35,7 +41,8 @@ public class LiveStation extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_livestation);
 
-        sourceTxt = (AutoCompleteTextView) findViewById(R.id.stationNameTxt);
+        sourceTxt = (EditText) findViewById(R.id.stationNameTxt);
+
         twoHourButton = (Button) findViewById(R.id.twoHourButton);
         fourHourButton = (Button) findViewById(R.id.fourHourButton);
         liveStationList = (ListView) findViewById(R.id.liveStationList);
@@ -48,10 +55,13 @@ public class LiveStation extends ActionBarActivity{
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
         if (stationNameLength()){
+            mSourceStnCode = sourceTxt.getText().toString();
             if (isConnected()){
                 String url = "http://api.railwayapi.com/arrivals/station/" +mSourceStnCode+
                         "/hours/2"+
                         "/apikey/"+IndianRailwayInfo.API_KEY+"/";
+                MyTask task = new MyTask();
+                task.execute(url);
 
             } else{
                 IndianRailwayInfo.showErrorDialog("Network Error", "No Network Connection", LiveStation.this);
@@ -112,20 +122,65 @@ public class LiveStation extends ActionBarActivity{
             } else if (s.contains("Connection Error:")){
                 IndianRailwayInfo.showErrorDialog("Error", s, LiveStation.this);
             } else {
-                modelList = SeatAvailParser.parseFeed(s);
-                if ((SeatAvailModel.responseCode > 200) && (SeatAvailModel.responseCode < 400)  ) {
-                    IndianRailwayInfo.showErrorDialog("Error", "Railway server responding slow or wrong parameters given", SeatAvail.this);
-                } else if (SeatAvailModel.responseCode > 400) {
-                    IndianRailwayInfo.showErrorDialog("Server Error", "Server is currently unavailable. Please try after some time", SeatAvail.this);
+                modelList = LiveStationParser.parseFeed(s);
+                if ((LiveStationModel.responseCode > 200) && (LiveStationModel.responseCode < 400)  ) {
+                    IndianRailwayInfo.showErrorDialog("Error", "Railway server responding slow or wrong parameters given", LiveStation.this);
+                } else if (LiveStationModel.responseCode > 400) {
+                    IndianRailwayInfo.showErrorDialog("Server Error", "Server is currently unavailable. Please try after some time", LiveStation.this);
                 } else {
-                    nameTxt.setVisibility(View.VISIBLE);
-                    seatAvalabilityList.setVisibility(View.VISIBLE);
-                    nameTxt.setText(SeatAvailModel.trNo + " / " + SeatAvailModel.trName);
-
-                    ArrayAdapter<SeatAvailModel> adapter = new SeatAvailAdapter();
-                    seatAvalabilityList.setAdapter(adapter);
+                    liveStationList.setVisibility(View.VISIBLE);
+                    ArrayAdapter<LiveStationModel> adapter = new LiveStationAdapter();
+                    liveStationList.setAdapter(adapter);
                 }
             }
+        }
+    }
+
+    public class LiveStationAdapter extends ArrayAdapter<LiveStationModel>{
+
+        public LiveStationAdapter() {
+            super(LiveStation.this, R.layout.itemview_live_station, modelList);
+        }
+
+        @Override
+        public LiveStationModel getItem (int pos){
+            if (modelList != null)
+                return modelList.get(pos);
+            else
+                return null;
+        }
+
+        @Override
+        public int getCount()
+        {
+            if (modelList != null)
+                return modelList.size();
+            else
+                return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View itemView = convertView;
+            if(itemView == null){
+                itemView = getLayoutInflater().inflate(R.layout.itemview_live_station, parent, false);
+            }
+            TextView trainNo = (TextView) itemView.findViewById(R.id.trainNoTxt);
+            TextView trainName = (TextView) itemView.findViewById(R.id.trainNameTxt);
+            TextView schArr = (TextView) itemView.findViewById(R.id.schArrTxt);
+            TextView schDept = (TextView) itemView.findViewById(R.id.schDeptTxt);
+            TextView actArr = (TextView) itemView.findViewById(R.id.actArrTxt);
+            TextView actDept = (TextView) itemView.findViewById(R.id.actDeptTxt);
+
+            LiveStationModel model = modelList.get(position);
+
+            trainNo.setText(model.getTrainNumber());
+            trainName.setText(model.getTrainName());
+            schArr.setText(model.getSchArrival());
+            schDept.setText(model.getSchDept());
+            actArr.setText(model.getActualArrival());
+            actDept.setText(model.getActualDept());
+            return itemView;
         }
     }
 }
