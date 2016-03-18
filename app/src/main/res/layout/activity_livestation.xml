@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/icon_bg_app"
+    >
+
+    <include android:id="@+id/app_bar_inc" layout="@layout/app_bar"></include>
+    <TextView
+        android:id="@+id/stationName"
+        android:layout_below="@id/app_bar_inc"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:text="Station Name: "/>
+    <EditText
+        android:id="@+id/stationNameTxt"
+        android:layout_below="@id/app_bar_inc"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:maxLength="10"
+        android:hint="Enter Station Name"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:background="@drawable/edittext_rounded"
+        android:cursorVisible="false"
+        android:layout_toRightOf="@+id/stationName"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/spaceTxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/stationNameTxt"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/twoHourButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onNextTwoHour"
+        android:text="Next 2 hr"
+        android:background="@drawable/textview_ontime"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/stationNameTxt"
+        android:layout_toLeftOf="@id/spaceTxt"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/fourHourButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onNextFourHour"
+        android:text="Next 4 hr"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:background="@drawable/textview_ontime"
+        android:layout_below="@+id/stationNameTxt"
+        android:textColor="#fff"
+        android:layout_toRightOf="@id/spaceTxt"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/liveStationList"
+        android:layout_below="@id/fourHourButton"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="5dp"
+        android:dividerHeight="5px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
