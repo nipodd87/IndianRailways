@@ -1,27 +1,36 @@
 package com.nitz.studio.indianrailways;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nitz.studio.indianrailways.model.LiveStationModel;
+import com.nitz.studio.indianrailways.model.SearchStationModel;
 import com.nitz.studio.indianrailways.parser.LiveStationParser;
+import com.nitz.studio.indianrailways.parser.SearchStationParser;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +38,7 @@ import java.util.List;
  */
 public class LiveStation extends ActionBarActivity{
 
-    private EditText sourceTxt;
+    private AutoCompleteTextView sourceTxt;
     private Button twoHourButton;
     private Button fourHourButton;
     public String mSourceStnCode = "";
@@ -41,12 +50,28 @@ public class LiveStation extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_livestation);
 
-        sourceTxt = (EditText) findViewById(R.id.stationNameTxt);
-
         twoHourButton = (Button) findViewById(R.id.twoHourButton);
         fourHourButton = (Button) findViewById(R.id.fourHourButton);
         liveStationList = (ListView) findViewById(R.id.liveStationList);
         liveStationList.setVisibility(View.INVISIBLE);
+        sourceTxt = (AutoCompleteTextView) findViewById(R.id.stationNameTxt);
+        sourceTxt.setThreshold(2);
+        sourceTxt.setAdapter(new StationSearchAdapter(this));
+        sourceTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SearchStationModel searchStationModel = (SearchStationModel) parent.getItemAtPosition(position);
+                sourceTxt.setText(searchStationModel.getStationName() + "-" + searchStationModel.getStationCode());
+                mSourceStnCode = searchStationModel.getStationCode();
+            }
+        });
+        sourceTxt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                sourceTxt.setCursorVisible(true);
+                return false;
+            }
+        });
     }
 
     public void onNextTwoHour(View view){
@@ -54,11 +79,23 @@ public class LiveStation extends ActionBarActivity{
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+        resultForClick("2");
+    }
+
+    public void onNextFourHour(View view){
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        resultForClick("4");
+    }
+
+    public void resultForClick(String hourClicked){
+
         if (stationNameLength()){
-            mSourceStnCode = sourceTxt.getText().toString();
             if (isConnected()){
                 String url = "http://api.railwayapi.com/arrivals/station/" +mSourceStnCode+
-                        "/hours/2"+
+                        "/hours/"+hourClicked+
                         "/apikey/"+IndianRailwayInfo.API_KEY+"/";
                 MyTask task = new MyTask();
                 task.execute(url);
@@ -67,14 +104,8 @@ public class LiveStation extends ActionBarActivity{
                 IndianRailwayInfo.showErrorDialog("Network Error", "No Network Connection", LiveStation.this);
             }
         } else
-            {
-                Toast.makeText(this, "Please enter valid station name", Toast.LENGTH_SHORT).show();
-        }
-    }
-    public void onNextFourHour(View view){
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        {
+            Toast.makeText(this, "Please enter valid station name", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -181,6 +212,89 @@ public class LiveStation extends ActionBarActivity{
             actArr.setText(model.getActualArrival());
             actDept.setText(model.getActualDept());
             return itemView;
+        }
+    }
+    public class StationSearchAdapter extends BaseAdapter implements Filterable {
+
+        public List<SearchStationModel> resultList = new ArrayList<SearchStationModel>();
+        private Context mContext;
+
+        public StationSearchAdapter(Context context){
+            mContext = context;
+        }
+
+        @Override
+        public int getCount() {
+            if (resultList != null)
+                return resultList.size();
+            else
+                return 0;
+        }
+
+        @Override
+        public SearchStationModel getItem(int position)
+        {
+            if (resultList != null)
+                return resultList.get(position);
+            else
+                return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null){
+                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(android.R.layout.simple_dropdown_item_1line, parent, false);
+            }
+            SearchStationModel model = resultList.get(position);
+            TextView stationName = (TextView)convertView.findViewById(android.R.id.text1);
+            stationName.setText(model.getStationName()+"-"+model.getStationCode());
+            stationName.setTextColor(Color.BLACK);
+            return convertView;
+        }
+
+        @Override
+        public Filter getFilter() {
+            Filter filter = new Filter() {
+                @Override
+                protected FilterResults performFiltering(CharSequence constraint) {
+                    FilterResults filterResults = new FilterResults();
+                    if(constraint != null){
+                        List<SearchStationModel> searchStationModels = findStationName(mContext, constraint.toString());
+                        filterResults.values = searchStationModels;
+                        filterResults.count = searchStationModels.size();
+                    }
+                    return filterResults;
+                }
+                @Override
+                protected void publishResults(CharSequence constraint, FilterResults results) {
+                    if (results != null && results.count>0){
+                        resultList = (List<SearchStationModel>) results.values;
+                        notifyDataSetChanged();
+                    } else{
+                        notifyDataSetInvalidated();
+                    }
+                }
+            };
+            return filter;
+        }
+        private List<SearchStationModel> findStationName(Context context, String stationCode){
+            String stationUrl = "http://api.railwayapi.com/suggest_station/name/"+stationCode+"/apikey/"+
+                    IndianRailwayInfo.API_KEY+"/";
+            try {
+                String content = HttpManager.getData(stationUrl);
+                List<SearchStationModel> resultModel = SearchStationParser.parseFeed(content);
+                return resultModel;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+
         }
     }
 }
