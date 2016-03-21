@@ -27,10 +27,7 @@ public class MainActivity extends ActionBarActivity {
     private ListView listView;
     private ImageView app_icon;
     public int [] imgResource={R.drawable.icon_train_pnr, R.drawable.icon_train_status, R.drawable.icon_train_route,
-
             R.drawable.icon_search_train, R.drawable.icon_train_fare, R.drawable.icon_seat_avail, R.drawable.icon_live_station, R.drawable.icon_train_irctc,
-            R.drawable.icon_train_cancelled, R.drawable.icon_train_reschedule, R.drawable.icon_train_diverted, R.drawable.icon_rate_us, R.drawable.icon_share_app,
-            R.drawable.icon_search_train, R.drawable.icon_train_fare, R.drawable.icon_seat_avail, R.drawable.icon_train_irctc,
             R.drawable.icon_train_cancelled, R.drawable.icon_train_reschedule, R.drawable.icon_train_diverted, R.drawable.icon_fog_train,R.drawable.icon_rate_us, R.drawable.icon_share_app};
 
 
