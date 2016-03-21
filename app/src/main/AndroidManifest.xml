@@ -85,6 +85,10 @@
             android:label="Diverted Trains"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
+        <activity android:name=".FogTrain"
+            android:label="Fog Affected Train"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" />
         <activity android:name=".PNRHistory"
             android:label="PNR History"
             android:windowSoftInputMode="stateHidden"
