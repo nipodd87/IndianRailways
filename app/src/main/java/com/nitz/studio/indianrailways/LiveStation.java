@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -44,11 +45,14 @@ public class LiveStation extends ActionBarActivity{
     public String mSourceStnCode = "";
     public ListView liveStationList;
     public List<LiveStationModel> modelList;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_livestation);
+        toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
+        setSupportActionBar(toolbar);
 
         twoHourButton = (Button) findViewById(R.id.twoHourButton);
         fourHourButton = (Button) findViewById(R.id.fourHourButton);

@@ -67,7 +67,7 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".LiveStation"
-            android:label="Seat Availability"
+            android:label="Train Arriving at Station"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
 
