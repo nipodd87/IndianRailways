@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nitz.studio.indianrailways"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.1">
 
     <uses-sdk android:minSdkVersion="9"
         android:targetSdkVersion="23"
@@ -20,7 +20,7 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            android:label="Indian Rail Info">
+            android:label="Indian Railways">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -88,6 +88,10 @@
 
         <activity android:name=".DivertedTrain"
             android:label="Diverted Trains"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" />
+        <activity android:name=".FogTrain"
+            android:label="Fog Affected Train"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
         <activity android:name=".PNRHistory"
