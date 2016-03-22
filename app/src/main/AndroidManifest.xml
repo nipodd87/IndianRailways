@@ -94,6 +94,10 @@
             android:label="Fog Affected Train"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" />
+        <activity android:name=".SpecialTrain"
+            android:label="Special Trains"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" />
         <activity android:name=".PNRHistory"
             android:label="PNR History"
             android:windowSoftInputMode="stateHidden"

@@ -12,7 +12,7 @@ import android.webkit.WebViewClient;
 /**
  * Created by nitinpoddar on 3/20/16.
  */
-public class FogTrain extends ActionBarActivity {
+public class SpecialTrain extends ActionBarActivity {
     private WebView webView;
     private Toolbar toolbar;
 
@@ -23,7 +23,7 @@ public class FogTrain extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
 
-        IndianRailwayInfo.showProgress(FogTrain.this, "Loading", "Please wait while the Page is loading...");
+        IndianRailwayInfo.showProgress(SpecialTrain.this, "Loading", "Please wait while the Page is loading...");
         webView = (WebView) findViewById(R.id.webview01);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
@@ -31,7 +31,7 @@ public class FogTrain extends ActionBarActivity {
         webView.getSettings().setBuiltInZoomControls(true);
         webView.invokeZoomPicker();
         webView.setWebViewClient(new MyWebClient());
-        webView.loadUrl("http://enquiry.indianrail.gov.in/ntes/fog.jsp");
+        webView.loadUrl("http://enquiry.indianrail.gov.in/ntes/specialtrains.jsp");
     }
 
     public class MyWebClient extends WebViewClient {
@@ -43,7 +43,7 @@ public class FogTrain extends ActionBarActivity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             // TODO Auto-generated method stub
-            IndianRailwayInfo.showProgress(FogTrain.this, "Loading", "Please wait while the Page is loading again...");
+            IndianRailwayInfo.showProgress(SpecialTrain.this, "Loading", "Please wait while the Page is loading again...");
             view.loadUrl(url);
             return true;
 
