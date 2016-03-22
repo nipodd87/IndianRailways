@@ -67,12 +67,26 @@
         android:layout_toRightOf="@id/spaceTxt"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/totalTrain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fourHourButton"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:text=""
+        android:background="#795548"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/liveStationList"
-        android:layout_below="@id/fourHourButton"
+        android:layout_below="@id/totalTrain"
         android:layout_marginRight="3dp"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="5dp"

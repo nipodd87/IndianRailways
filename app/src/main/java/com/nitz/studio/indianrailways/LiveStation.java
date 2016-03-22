@@ -17,19 +17,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.nitz.studio.indianrailways.model.LiveStationModel;
 import com.nitz.studio.indianrailways.model.SearchStationModel;
 import com.nitz.studio.indianrailways.parser.LiveStationParser;
 import com.nitz.studio.indianrailways.parser.SearchStationParser;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +36,9 @@ import java.util.List;
 public class LiveStation extends ActionBarActivity{
 
     private AutoCompleteTextView sourceTxt;
-    private Button twoHourButton;
-    private Button fourHourButton;
     public String mSourceStnCode = "";
     public ListView liveStationList;
+    public TextView totalTrain;
     public List<LiveStationModel> modelList;
     private Toolbar toolbar;
 
@@ -53,9 +48,8 @@ public class LiveStation extends ActionBarActivity{
         setContentView(R.layout.activity_livestation);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
-
-        twoHourButton = (Button) findViewById(R.id.twoHourButton);
-        fourHourButton = (Button) findViewById(R.id.fourHourButton);
+        totalTrain = (TextView) findViewById(R.id.totalTrain);
+        totalTrain.setVisibility(View.INVISIBLE);
         liveStationList = (ListView) findViewById(R.id.liveStationList);
         liveStationList.setVisibility(View.INVISIBLE);
         sourceTxt = (AutoCompleteTextView) findViewById(R.id.stationNameTxt);
@@ -136,6 +130,7 @@ public class LiveStation extends ActionBarActivity{
         protected void onPreExecute() {
             IndianRailwayInfo.showProgress(LiveStation.this, "Loading", "Please wait this may take more than 30 seconds...");
             liveStationList.setVisibility(View.INVISIBLE);
+            totalTrain.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -164,6 +159,8 @@ public class LiveStation extends ActionBarActivity{
                     IndianRailwayInfo.showErrorDialog("Server Error", "Server is currently unavailable. Please try after some time", LiveStation.this);
                 } else {
                     liveStationList.setVisibility(View.VISIBLE);
+                    totalTrain.setVisibility(View.VISIBLE);
+                    totalTrain.setText("Total Trains: "+LiveStationModel.totalTrain);
                     ArrayAdapter<LiveStationModel> adapter = new LiveStationAdapter();
                     liveStationList.setAdapter(adapter);
                 }
