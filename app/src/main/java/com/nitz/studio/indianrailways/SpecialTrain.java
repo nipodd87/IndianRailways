@@ -31,7 +31,7 @@ public class SpecialTrain extends ActionBarActivity {
         webView.getSettings().setBuiltInZoomControls(true);
         webView.invokeZoomPicker();
         webView.setWebViewClient(new MyWebClient());
-        webView.loadUrl("http://enquiry.indianrail.gov.in/ntes/specialtrains.jsp");
+        webView.loadUrl("http://enquiry.indianrail.gov.in/ntes/specialTrains.jsp");
     }
 
     public class MyWebClient extends WebViewClient {
