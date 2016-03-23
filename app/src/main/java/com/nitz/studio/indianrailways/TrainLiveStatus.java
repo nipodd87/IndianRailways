@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.nitz.studio.indianrailways.model.TrainStatus;
 import com.nitz.studio.indianrailways.parser.TrainStatusParser;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

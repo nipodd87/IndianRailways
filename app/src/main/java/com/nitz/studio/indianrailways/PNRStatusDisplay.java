@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.nitz.studio.indianrailways.model.PNRStatusModel;
 import com.nitz.studio.indianrailways.parser.PNRParser;
-
 import java.io.IOException;
 import java.util.List;
 

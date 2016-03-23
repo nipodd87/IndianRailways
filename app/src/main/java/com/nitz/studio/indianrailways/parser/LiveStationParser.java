@@ -1,12 +1,9 @@
 package com.nitz.studio.indianrailways.parser;
 
 import com.nitz.studio.indianrailways.model.LiveStationModel;
-import com.nitz.studio.indianrailways.model.TrainModel;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 

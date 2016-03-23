@@ -30,7 +30,6 @@ import com.nitz.studio.indianrailways.model.FareTrainModel;
 import com.nitz.studio.indianrailways.model.SearchStationModel;
 import com.nitz.studio.indianrailways.parser.FareTrainParser;
 import com.nitz.studio.indianrailways.parser.SearchStationParser;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
