@@ -73,7 +73,7 @@ public class TrainRoute extends ActionBarActivity {
             Toast.makeText(this, "Please enter valid 5 digit Train no.", Toast.LENGTH_SHORT).show();
         } else {
                 if (isConnected()){
-                    String url = "http://api.railwayapi.com/route/train/"+trainNo+"/apikey/"+IndianRailwayInfo.API_KEY+"/";
+                    String url = "https://api.railwayapi.com/route/train/"+trainNo+"/apikey/"+IndianRailwayInfo.API_KEY+"/";
                     MyTask task = new MyTask();
                     task.execute(url);
                 }else{

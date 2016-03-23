@@ -29,7 +29,6 @@ import com.nitz.studio.indianrailways.model.SearchStationModel;
 import com.nitz.studio.indianrailways.model.TrainModel;
 import com.nitz.studio.indianrailways.parser.SearchStationParser;
 import com.nitz.studio.indianrailways.parser.SearchTrainParser;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
