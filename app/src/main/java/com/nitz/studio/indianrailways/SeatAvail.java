@@ -7,9 +7,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,6 +90,8 @@ public class SeatAvail extends ActionBarActivity implements AdapterView.OnItemSe
         setContentView(R.layout.activity_seat_avail);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sourceTxt = (AutoCompleteTextView) findViewById(R.id.sourceTxt);
         destinationTxt = (AutoCompleteTextView) findViewById(R.id.destinationTxt);
         sourceTxt.setThreshold(2);
@@ -164,6 +168,15 @@ public class SeatAvail extends ActionBarActivity implements AdapterView.OnItemSe
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, R.layout.layout_spinner_dropdown, classArray);
         // attaching data adapter to spinner
         travelClass.setAdapter(dataAdapter);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void getFare(View view){

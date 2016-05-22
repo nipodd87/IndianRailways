@@ -6,9 +6,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +43,8 @@ public class TrainRoute extends ActionBarActivity {
         setContentView(R.layout.activity_trainroute);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         trainRoutList = (ListView) findViewById(R.id.trainRoutList);
         trTxt = (EditText) findViewById(R.id.trTxt);
@@ -61,6 +65,16 @@ public class TrainRoute extends ActionBarActivity {
         trainRoutList.setVisibility(View.INVISIBLE);
 
         trainRoutList = (ListView) findViewById(R.id.trainRoutList);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void getTrainRoute(View view){

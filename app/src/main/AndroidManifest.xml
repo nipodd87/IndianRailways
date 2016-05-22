@@ -46,61 +46,107 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:label="Train Live Status">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
         </activity>
 
         <activity android:name=".TrainRoute"
             android:label="Train Route"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
         </activity>
 
         <activity android:name=".SearchTrain"
             android:label="Search Train"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".FareEnquiry"
             android:label="Fare Enquiry"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".SeatAvail"
             android:label="Seat Availability"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".LiveStation"
             android:label="Train Arriving at Station"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".IRCTCBooking"
             android:label="IRCTC Booking"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".CancelledTrain"
             android:label="Cancelled Trains"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".RescheduledTrain"
             android:label="Rescheduled Train"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
 
         <activity android:name=".DivertedTrain"
             android:label="Diverted Trains"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
         <activity android:name=".FogTrain"
             android:label="Fog Affected Train"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
         <activity android:name=".SpecialTrain"
             android:label="Special Trains"
             android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nitz.studio.indianrailways.MainActivity" />
+            </activity>
         <activity android:name=".PNRHistory"
             android:label="PNR History"
             android:windowSoftInputMode="stateHidden"
@@ -115,5 +161,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

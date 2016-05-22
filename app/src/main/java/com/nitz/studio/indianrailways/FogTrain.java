@@ -3,9 +3,11 @@ package com.nitz.studio.indianrailways;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -22,7 +24,8 @@ public class FogTrain extends ActionBarActivity {
         setContentView(R.layout.activity_cancelled);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         IndianRailwayInfo.showProgress(FogTrain.this, "Loading", "Please wait while the Page is loading...");
         webView = (WebView) findViewById(R.id.webview01);
         webView.getSettings().setLoadWithOverviewMode(true);
@@ -33,7 +36,14 @@ public class FogTrain extends ActionBarActivity {
         webView.setWebViewClient(new MyWebClient());
         webView.loadUrl("http://enquiry.indianrail.gov.in/ntes/fog.jsp");
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+        return true;
+    }
     public class MyWebClient extends WebViewClient {
 
         @Override
