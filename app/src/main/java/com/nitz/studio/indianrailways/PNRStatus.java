@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -28,6 +30,8 @@ public class PNRStatus extends ActionBarActivity {
         setContentView(R.layout.activity_pnrstatus);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         pnrStatusEditTxt = (EditText) findViewById(R.id.pnrStatusEditTxt);
         pnrStatusEditTxt.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -37,6 +41,16 @@ public class PNRStatus extends ActionBarActivity {
             }
         });
          }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home){
+            NavUtils.navigateUpFromSameTask(this);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     public void pnrStatusCheck(View view){
         if (view != null) {
