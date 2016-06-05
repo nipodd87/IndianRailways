@@ -17,9 +17,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.mixpanel.android.mpmetrics.MixpanelAPI;
 import com.nitz.studio.indianrailways.model.MainListModel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class MainActivity extends ActionBarActivity {
@@ -41,6 +48,17 @@ public class MainActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
         AppRater.app_launched(this);
+        MixpanelAPI mixpanel = MixpanelAPI.getInstance(this, IndianRailwayInfo.MIXPANEL_TOKEN);
+        mixpanel.getPeople().identify("24021987");
+        JSONObject mainActivity = new JSONObject();
+        try {
+            mainActivity.put("MainActivity", "MainActivity Launched");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        mixpanel.track("MainActivity", mainActivity);
         listView = (ListView) findViewById(R.id.listView);
         listView.setBackgroundColor(Color.TRANSPARENT);
         Resources res = getResources();

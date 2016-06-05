@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "414059183464",
+    "firebase_url": "https://indian-railways-1333.firebaseio.com",
+    "project_id": "indian-railways-1333",
+    "storage_bucket": "indian-railways-1333.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414059183464:android:33d0c867af81cbf1",
+        "android_client_info": {
+          "package_name": "com.nitz.studio.indianrailways"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414059183464-8oeti69sd3uroh7mqg703li0c8v0cieo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nitz.studio.indianrailways",
+            "certificate_hash": "288521FA17FC4415BF60ADCD1FDECA3262E8B6E8"
+          }
+        },
+        {
+          "client_id": "414059183464-p2veck7lm40s0si9dvfrfbvnjnc2qcu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8TCUsn71nVxITPr7zrf_DHypcd39sRKo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414059183464-p2veck7lm40s0si9dvfrfbvnjnc2qcu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
