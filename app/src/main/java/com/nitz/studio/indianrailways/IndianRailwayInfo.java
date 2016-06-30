@@ -11,6 +11,7 @@ import android.content.DialogInterface;
  */
 public class IndianRailwayInfo extends Application{
     public static final String API_KEY = "csxwo2047";
+    public static final String MIXPANEL_TOKEN = "a853af3ecf4658f679705d3bb446dd21";
     public final static String APP_PNAME = "com.nitz.studio.indianrailways";
     public static ProgressDialog progressDialog;
 
