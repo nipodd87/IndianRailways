@@ -83,6 +83,7 @@ public class SearchTrain extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchtrain);
+        getWindow().setBackgroundDrawable(null);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);

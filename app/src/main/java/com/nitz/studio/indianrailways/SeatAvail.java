@@ -88,6 +88,7 @@ public class SeatAvail extends ActionBarActivity implements AdapterView.OnItemSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_avail);
+        getWindow().setBackgroundDrawable(null);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);

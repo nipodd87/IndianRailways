@@ -23,6 +23,7 @@ public class SpecialTrain extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cancelled);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
+        getWindow().setBackgroundDrawable(null);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -44,8 +44,11 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setBackgroundDrawable(null);
         toolbar = (Toolbar) findViewById(R.id.app_bar_inc);
-        setSupportActionBar(toolbar);
+        if (toolbar!= null){
+            setSupportActionBar(toolbar);
+        }
         AppRater.app_launched(this);
         MixpanelAPI mixpanel = MixpanelAPI.getInstance(this, IndianRailwayInfo.MIXPANEL_TOKEN);
         mixpanel.getPeople().identify("24021987");
