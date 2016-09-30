@@ -33,7 +33,7 @@
     <string name="title_activity_pnr_status">pnr_status</string>
     <string name="title_activity_pnrstatus">PNR Status</string>
     <string name="dialog_title">Rate %s</string>
-    <string name="rate_message">If you enjoy using this app, please take a moment to rate it. Thanks for your support!</string>
+    <string name="rate_message">Indian Railway is a free app without any advertisement to bug. \n If you enjoy using this app, please take a moment to rate it so that we can get you more cool apps like this. Thanks for your support!</string>
     <string name="rate">Rate Now</string>
     <string name="later">Later</string>
     <string name="no_thanks">No thanks</string>

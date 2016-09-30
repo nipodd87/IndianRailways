@@ -151,5 +151,6 @@
         android:layout_marginLeft="2dp"
         android:layout_toRightOf="@id/totalTrain"
         android:layout_alignBaseline="@id/totalTrain"
+        android:layout_marginRight="2dp"
         />
 </RelativeLayout>
